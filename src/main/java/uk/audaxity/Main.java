@@ -34,8 +34,6 @@ public class Main {
 
         JSONArray flightInformation = departures.getJSONArray("data");
         int flightCount = flightInformation.length();
-
-        StringBuffer list = new StringBuffer();
         Date lastdate = null;
 
         for (int i=0;i<flightInformation.length();i++) {
@@ -81,10 +79,9 @@ public class Main {
                 if ( CURR_DAY != checkindate.getDate() ) {
                     System.out.println("\u001B[0m"+ "\nDAY " + checkindate.getDate() + "/"+checkindate.getMonth()+"/"+checkindate.getYear());
                     CURR_DAY = checkindate.getDate();
+                    lastdate = null;
                 }
-
-                list.append("[" + flightNumber + "] [" + flightName + "] @ " + date);
-                System.out.println("\u001B[0m" + "\u001B[34m" + "[" + flightNumber + "] [" + flightName + "] @ " + checkindate.getDate() + "th // Check-In @ " + abc + " // Boarding @ " + cba);
+                System.out.println("\u001B[0m" + "\u001B[34m" + "[" + flightNumber + "] [" + flightName + "] // Check-In @ " + abc + " // Boarding @ " + cba);
 
                 long seconds = 0;
                 long hours = 0;
